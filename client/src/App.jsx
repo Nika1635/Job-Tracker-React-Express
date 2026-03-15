@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Navbar from './components/navbar/navbar.jsx'
+import IndexPage from './components/indexPage/indexPage.jsx'
+import { useState } from 'react'
 import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
@@ -18,9 +19,12 @@ function App() {
   }, [])
   return (
     <>
-      {
-        data.map((item) => <h1 key={item.id}>{item.company}</h1>)
-      }
+      <BrowserRouter>
+        <Navbar/>
+        <Routes>
+          <Route path="/" element= {<IndexPage/>}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
