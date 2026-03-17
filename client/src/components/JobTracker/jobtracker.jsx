@@ -29,7 +29,7 @@ export default function Jobtracker(){
                     </thead>
                     <tbody>
                         {jobData.map((data) => (
-                            <tr>
+                            <tr key={data.id}>
                                 <td>{data.company}</td>
                                 <td>{data.position}</td>
                                 <td>{data.status}</td>
