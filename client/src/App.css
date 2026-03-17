@@ -1,0 +1,15 @@
+.app-hero{
+    background-color: brown;
+    padding: 5%;
+}
+
+@media screen and (min-width: 768px) {
+    .app-hero{
+        background-color: brown;
+        padding: 5%;
+    }
+
+    body {
+        background-color: lightgreen;
+    }
+}

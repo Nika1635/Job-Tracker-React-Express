@@ -1,0 +1,28 @@
+.component-hero{
+    background-color: #B6C7EA;
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    border-radius: 20px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 7px;
+}
+
+.component-header{
+    padding: 20px;
+    color: #2c4568;
+}
+
+.component-info{
+    background-color: #EAEFF9;
+    border-radius: 0px 0px 20px 20px;
+    padding: 2%;
+}
+
+table, th, td {
+  border: 1px solid green;
+  text-align: left;
+}
+
+table{
+    width: 100%;
+}

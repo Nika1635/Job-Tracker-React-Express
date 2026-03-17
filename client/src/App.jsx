@@ -23,11 +23,13 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar/>
-      <Routes>
-        <Route index element= {<Home/>}></Route>
-        <Route path='/jobs' element= {<Jobs/>}></Route>
-        <Route path='*' element= {<NotFound/>}></Route>
-      </Routes>
+      <div className='app-hero'>
+        <Routes>
+          <Route index element= {<Home/>}></Route>
+          <Route path='/jobs' element= {<Jobs/>}></Route>
+          <Route path='*' element= {<NotFound/>}></Route>
+        </Routes>
+      </div>
     </BrowserRouter>
   )
 }
