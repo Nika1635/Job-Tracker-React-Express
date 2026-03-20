@@ -4,11 +4,12 @@ import sql from "../db/db.js"
 export const appRouter = express.Router()
 
 appRouter.get('/', async (req, res) => {
-    const jobs = await sql`SELECT * FROM jobs`
+    const jobs = await sql`SELECT * FROM jobs;`
     res.json(jobs)
 })
 
-appRouter.post("/", (req, res) => {
+appRouter.post("/", async (req, res) => {
     console.log(req.body)
-    return res.send(200)
+    const sendData = await sql `INSERT INTO jobs(company, position, status) VALUES (${req.body.company}, ${req.body.position}, ${req.body.status});`
+    res.json(sendData)
 })
