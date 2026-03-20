@@ -1,6 +1,6 @@
 import express from "express"
 import cors from "cors"
-import { appRouter } from "./controller/mainController.js"
+import { appRouter } from "./router/mainRouter.js"
 
 const PORT = process.env.PORT || 8000
 

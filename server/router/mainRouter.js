@@ -8,3 +8,7 @@ appRouter.get('/', async (req, res) => {
     res.json(jobs)
 })
 
+appRouter.post("/", (req, res) => {
+    console.log(req.body)
+    return res.send(200)
+})
