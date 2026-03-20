@@ -10,6 +10,6 @@ appRouter.get('/', async (req, res) => {
 
 appRouter.post("/", async (req, res) => {
     console.log(req.body)
-    const sendData = await sql `INSERT INTO jobs(company, position, status) VALUES (${req.body.company}, ${req.body.position}, ${req.body.status});`
+    const sendData = await sql `INSERT INTO jobs(company, position, status) VALUES (${req.body.company}, ${req.body.position}, "Interview");`
     res.json(sendData)
 })
