@@ -13,6 +13,10 @@ export default function Jobtracker({modalStatus, showModalActivate}){
         .then(data => setJobData(data))
     }, [])
 
+    const logButton = (e) => {
+        console.log(e.target.value)
+    }
+
     return(
         <section className='component-hero'>
             <div className='component-header'>
@@ -35,6 +39,7 @@ export default function Jobtracker({modalStatus, showModalActivate}){
                                 <td>{data.company}</td>
                                 <td>{data.position}</td>
                                 <td>{data.status}</td>
+                                <td><button value={data.id} onClick={logButton}>Delete</button></td>
                             </tr>
                             ))
                         }

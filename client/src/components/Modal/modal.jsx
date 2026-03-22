@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "../../styles/modal.css"
+import "./modal.css"
 
 export default function Modal({modalStatus, showModalActivate}){
 

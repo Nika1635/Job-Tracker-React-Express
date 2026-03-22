@@ -30,3 +30,9 @@ table, th, td {
 table{
     width: 100%;
 }
+
+td > button {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
