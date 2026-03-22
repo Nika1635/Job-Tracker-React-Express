@@ -10,9 +10,13 @@ export default function Jobtracker({modalStatus, showModalActivate, trackerJobDa
         getAllDataService(setTrackerJobData)
     }, [])
 
-    const deleteButton = (e) => {
-        console.log(e.target.value)
-        getAllDataService(setTrackerJobData)
+    const deleteButton = async (e) => {
+        const id = e.target.value
+        const response = await fetch(`https://job-tracker-t0qo.onrender.com/${id}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" }
+        })
+        setTrackerJobData(prev => prev.filter(job => job.id !== +id))
     }
 
     return(
