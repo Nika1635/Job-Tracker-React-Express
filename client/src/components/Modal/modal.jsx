@@ -26,8 +26,7 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData})
         })
 
         const newJob = await response.json()
-        await setModalJobData(prev => [...prev, newJob])
-        
+        setModalJobData(prev => [...prev, newJob])
     }
 
     return (
@@ -36,7 +35,7 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData})
                 className='component-hero'
                 onClick={(e) => e.stopPropagation()}
             >
-                <form className ="modal-form"  onSubmit={handleSubmit}>
+                <form className ="modal-form" onSubmit={handleSubmit}>
                     <div className="modal-inputfield">
                         <label htmlFor="company">Company Name</label>
                         <input type="text" name="company" onChange={handleChanges} />
