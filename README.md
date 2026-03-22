@@ -8,8 +8,12 @@ It’s designed to help job seekers organize their job search in one place inste
 
 This web application is still in development. Planning to add authentication and more...
 
+
+
 Frontend: React
+
 Backend: Express.js
-Database: RESTful endpoints for CRUD operations
+
 Database: PostgresSQL
+
 Hosting: Vercel(React), Render(Express.js), Supabase(PostgresSQL)
