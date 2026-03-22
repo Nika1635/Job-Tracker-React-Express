@@ -2,19 +2,21 @@ import styles from './jobtracker.module.css'
 import '../../styles/componentstyles.css'
 import '../../styles/buttonstyle.css'
 import { useEffect, useState } from 'react'
+import { getAllDataService } from '../services'
 
 export default function Jobtracker({modalStatus, showModalActivate}){
 
     const [jobData, setJobData] = useState([])
 
+
+
     useEffect(() => {
-        fetch("https://job-tracker-t0qo.onrender.com/")
-        .then(jsonResponse => jsonResponse.json())
-        .then(data => setJobData(data))
+        getAllDataService(setJobData)
     }, [])
 
-    const logButton = (e) => {
+    const deleteButton = (e) => {
         console.log(e.target.value)
+        getAllDataService(setJobData)
     }
 
     return(
@@ -39,7 +41,7 @@ export default function Jobtracker({modalStatus, showModalActivate}){
                                 <td>{data.company}</td>
                                 <td>{data.position}</td>
                                 <td>{data.status}</td>
-                                <td><button value={data.id} onClick={logButton}>Delete</button></td>
+                                <td><button value={data.id} onClick={deleteButton}>Delete</button></td>
                             </tr>
                             ))
                         }

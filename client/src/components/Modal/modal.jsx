@@ -2,7 +2,6 @@ import { useState } from "react"
 import "./modal.css"
 
 export default function Modal({modalStatus, showModalActivate}){
-
     const [formData, setFormData] = useState({
         company: "",
         position: "",
