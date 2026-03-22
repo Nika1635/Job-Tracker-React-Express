@@ -1,5 +1,4 @@
 .app-hero{
-    background-color: brown;
     padding: 5%;
 }
 
@@ -7,9 +6,5 @@
     .app-hero{
         background-color: brown;
         padding: 5%;
-    }
-
-    body {
-        background-color: lightgreen;
     }
 }
