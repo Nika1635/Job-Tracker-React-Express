@@ -7,3 +7,9 @@ Job Tracker is a full‑stack web application built with React on the frontend a
 It’s designed to help job seekers organize their job search in one place instead of using spreadsheets or notes. The backend handles data storage and logic, while the frontend lets users interact with their application list dynamically and smoothly.
 
 This web application is still in development. Planning to add authentication and more...
+
+Frontend: React
+Backend: Express.js
+Database: RESTful endpoints for CRUD operations
+Database: PostgresSQL
+Hosting: Vercel(React), Render(Express.js), Supabase(PostgresSQL)
