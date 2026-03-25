@@ -25,12 +25,6 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
         }
     }
 
-    
-    useEffect(() => {
-        console.log(mode)
-    },[])
-
-
     return (
         <div className="modalHero" onClick={() => {showModalActivate(!modalStatus)}}>
             <section 
