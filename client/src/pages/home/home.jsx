@@ -9,6 +9,8 @@ export default function Home(){
     const [jobData, setJobData] = useState([])
     const [loaderStatus, setLoaderStatus] = useState(false)
 
+    const [mode, setMode] = useState("")
+
     return(
         <>
         {
@@ -22,6 +24,7 @@ export default function Home(){
                     showModalActivate={setShowModal}
                     setModalJobData={setJobData}
                     setLoaderStatus={setLoaderStatus}
+                    mode={mode}
                 /> : null
             }
             <Jobtracker 
@@ -30,6 +33,7 @@ export default function Home(){
                 trackerJobData={jobData}
                 setTrackerJobData={setJobData}
                 setLoaderStatus={setLoaderStatus}
+                setMode={setMode}
             />
         </>
     )

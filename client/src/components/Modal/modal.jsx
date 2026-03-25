@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import "./modal.css"
 import { jobPostRequest } from '../services.jsx'
 
-export default function Modal({modalStatus, showModalActivate, setModalJobData, setLoaderStatus}){
+export default function Modal({modalStatus, showModalActivate, setModalJobData, setLoaderStatus, mode}){
     const [formData, setFormData] = useState({
         company: "",
         position: "",
@@ -18,9 +18,18 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(formData)
-        jobPostRequest(formData, setModalJobData, setLoaderStatus)
+        if(mode === "new"){
+            jobPostRequest(formData, setModalJobData, setLoaderStatus)
+        } else if(mode === "edit"){
+            console.log("edited")
+        }
     }
+
+    
+    useEffect(() => {
+        console.log(mode)
+    },[])
+
 
     return (
         <div className="modalHero" onClick={() => {showModalActivate(!modalStatus)}}>
@@ -28,6 +37,9 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
                 className='component-hero'
                 onClick={(e) => e.stopPropagation()}
             >
+                <h1 className='modal-header'>
+                    {mode === "new" ? "New Job" : mode === "edit" ? "Edit Job" : ""}
+                </h1>
                 <form className ="modal-form" onSubmit={handleSubmit}>
                     <div className="modal-inputfield">
                         <label htmlFor="company">Company Name</label>
@@ -48,7 +60,7 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
                             <option value="Accepted">Accepted</option>
                         </select>
                     </div>
-                    <button type="submit" className="modal-submit">Edit</button>
+                    <button type="submit" className="modal-submit">Submit</button>
                 </form>
             </section>
         </div>

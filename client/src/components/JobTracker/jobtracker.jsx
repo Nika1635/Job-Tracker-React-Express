@@ -4,11 +4,13 @@ import '../../styles/buttonstyle.css'
 import { useEffect} from 'react'
 import { jobDeleteRequest, jobGetRequest } from '../services'
 
-export default function Jobtracker({modalStatus, showModalActivate, trackerJobData, setTrackerJobData, setLoaderStatus}){
+export default function Jobtracker({modalStatus, showModalActivate, trackerJobData, setTrackerJobData, setLoaderStatus, setMode}){
 
     useEffect(() => {
         jobGetRequest(setTrackerJobData, setLoaderStatus)
     }, [])
+
+
 
     const deleteButton = async (e) => {
         const id = e.target.value
@@ -19,7 +21,7 @@ export default function Jobtracker({modalStatus, showModalActivate, trackerJobDa
         <section className='component-hero'>
             <div className='component-header'>
                 <h1>Job Tracker</h1>
-                <button onClick={() =>{showModalActivate(!modalStatus)}}>Add New</button>
+                <button onClick={() =>{showModalActivate(!modalStatus), setMode("new")}}>Add New</button>
             </div>
 
             <div className='component-info'>
@@ -39,7 +41,7 @@ export default function Jobtracker({modalStatus, showModalActivate, trackerJobDa
                                 <td>{data.status}</td>
                                 <td>
                                     <button value={data.id} onClick={deleteButton}>Delete</button>
-                                    <button value={data.id}>Edit</button>
+                                    <button value={data.id} onClick={() =>{showModalActivate(!modalStatus), setMode("edit")}}>Edit</button>
                                 </td>
                             </tr>
                             ))
