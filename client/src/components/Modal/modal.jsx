@@ -48,7 +48,7 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
                             <option value="Accepted">Accepted</option>
                         </select>
                     </div>
-                    <button type="submit" className="modal-submit">submit</button>
+                    <button type="submit" className="modal-submit">Edit</button>
                 </form>
             </section>
         </div>

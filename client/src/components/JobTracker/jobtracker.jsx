@@ -37,7 +37,10 @@ export default function Jobtracker({modalStatus, showModalActivate, trackerJobDa
                                 <td>{data.company}</td>
                                 <td>{data.position}</td>
                                 <td>{data.status}</td>
-                                <td><button value={data.id} onClick={deleteButton}>Delete</button></td>
+                                <td>
+                                    <button value={data.id} onClick={deleteButton}>Delete</button>
+                                    <button value={data.id}>Edit</button>
+                                </td>
                             </tr>
                             ))
                         }
