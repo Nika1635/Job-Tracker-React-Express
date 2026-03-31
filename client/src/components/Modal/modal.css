@@ -17,6 +17,10 @@
   align-items: center;
 }
 
+.modal-inputfield > :active{
+  background-color: transparent;
+}
+
 .modal-inputfield label {
   width: 200px;
 }

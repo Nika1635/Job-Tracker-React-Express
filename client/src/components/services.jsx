@@ -27,3 +27,16 @@ export async function jobPostRequest(data, setData, setLoaderStatus){
     setData(prev => [...prev, newJob])
     setLoaderStatus(false)
 }
+
+export async function getJobWithIdRequest(setData, setLoaderStatus, id){
+    setLoaderStatus(true)
+    const response = await fetch(`https://job-tracker-t0qo.onrender.com/${JSON.parse(id)}`)
+                            .then(jsonResponse => jsonResponse.json())
+                            .then(async (data) => setData({
+                                company: data[0].company,
+                                position: data[0].position,
+                                status: data[0].status,
+                                id: data[0].id
+                            }))
+    setLoaderStatus(false)
+}

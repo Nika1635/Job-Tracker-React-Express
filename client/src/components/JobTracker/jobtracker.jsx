@@ -4,7 +4,7 @@ import '../../styles/buttonstyle.css'
 import { useEffect} from 'react'
 import { jobDeleteRequest, jobGetRequest } from '../services'
 
-export default function Jobtracker({modalStatus, showModalActivate, trackerJobData, setTrackerJobData, setLoaderStatus, setMode}){
+export default function Jobtracker({modalStatus, showModalActivate, trackerJobData, setTrackerJobData, setLoaderStatus, setMode, setJobId}){
 
     useEffect(() => {
         jobGetRequest(setTrackerJobData, setLoaderStatus)
@@ -41,7 +41,7 @@ export default function Jobtracker({modalStatus, showModalActivate, trackerJobDa
                                 <td>{data.status}</td>
                                 <td>
                                     <button value={data.id} onClick={deleteButton}>Delete</button>
-                                    <button value={data.id} onClick={() =>{showModalActivate(!modalStatus), setMode("edit")}}>Edit</button>
+                                    <button value={data.id} onClick={() =>{showModalActivate(!modalStatus), setMode("edit"), setJobId(data.id)}}>Edit</button>
                                 </td>
                             </tr>
                             ))

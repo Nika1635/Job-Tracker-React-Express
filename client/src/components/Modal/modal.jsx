@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react'
 import "./modal.css"
-import { jobPostRequest } from '../services.jsx'
+import { getJobWithIdRequest, jobPostRequest } from '../services.jsx'
 
-export default function Modal({modalStatus, showModalActivate, setModalJobData, setLoaderStatus, mode}){
+export default function Modal({modalStatus, showModalActivate, setModalJobData, setLoaderStatus, mode, jobId}){
     const [formData, setFormData] = useState({
         company: "",
         position: "",
         status: ""
     })
+
+    useEffect(() => {
+        if(mode === "edit"){
+            getJobWithIdRequest(setFormData, setLoaderStatus, jobId)
+        }
+    }, [])
 
     const handleChanges = (e) => {
         setFormData({
@@ -21,7 +27,7 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
         if(mode === "new"){
             jobPostRequest(formData, setModalJobData, setLoaderStatus)
         } else if(mode === "edit"){
-            console.log("edited")
+            console.log(formData)
         }
     }
 
@@ -37,15 +43,15 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
                 <form className ="modal-form" onSubmit={handleSubmit}>
                     <div className="modal-inputfield">
                         <label htmlFor="company">Company Name</label>
-                        <input type="text" name="company" onChange={handleChanges} />
+                        <input type="text" name="company" onChange={handleChanges} value={mode === "new" ? formData.company : mode === "edit" ? formData.company : "0"}/>
                     </div>
                     <div className="modal-inputfield">
                         <label htmlFor="position">Position</label>
-                        <input type="text" name="position" onChange={handleChanges} />
+                        <input type="text" name="position" onChange={handleChanges} value={mode === "new" ? formData.position : mode === "edit" ? formData.position : "0"}/>
                     </div>
                     <div className="modal-inputfield">
                         <label htmlFor="status">Status</label>
-                        <select value={formData.status} name="status" onChange={handleChanges}>
+                        <select value={mode === "new" ? formData.status : mode === "edit" ? formData.status : "0"} name="status" onChange={handleChanges}>
                             <option value="" disabled>Status</option>
                             <option value="Applied">Applied</option>
                             <option value="Interview">Interview</option>
